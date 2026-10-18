@@ -1,6 +1,6 @@
 ---
 name: arastirmaci
-description: Güncel bilgi, rakip, kütüphane, sürüm veya doküman araştırması gerektiğinde kullan. Kaynaklı ve güven düzeyli sonuç verir.
+description: "Güncel bilgi, rakip, kütüphane, sürüm veya doküman araştırması gerektiğinde kullan. Kaynaklı ve güven düzeyli sonuç verir."
 tools: Read, Grep, Glob, WebSearch, WebFetch
 model: sonnet
 maxTurns: 25

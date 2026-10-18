@@ -1,6 +1,6 @@
 ---
 name: bakici
-description: Kullanıcı 'ekibi güncelle' dediğinde veya zamanlanmış bakımda kullan. lessons.md'den ajan dosyaları için ayrı dalda değişiklik önerisi hazırlar.
+description: "Kullanıcı 'ekibi güncelle' dediğinde veya zamanlanmış bakımda kullan. lessons.md'den ajan dosyaları için ayrı dalda değişiklik önerisi hazırlar."
 tools: Read, Grep, Glob, Write, Edit, Bash
 model: sonnet
 maxTurns: 20

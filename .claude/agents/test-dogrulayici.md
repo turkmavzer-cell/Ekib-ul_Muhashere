@@ -1,6 +1,6 @@
 ---
 name: test-dogrulayici
-description: Kod değişikliğinden sonra, 'bitti' denmeden önce ve build, APK veya kurulum hatalarında kullan. Çalıştırarak doğrular, kodu düzeltmez.
+description: "Kod değişikliğinden sonra, 'bitti' denmeden önce ve build, APK veya kurulum hatalarında kullan. Çalıştırarak doğrular, kodu düzeltmez."
 tools: Read, Grep, Glob, Bash
 model: sonnet
 maxTurns: 30

@@ -1,6 +1,6 @@
 ---
 name: mimar
-description: Yeni uygulama, yeni özellik, veri modeli değişikliği veya teknoloji seçimi gibi geri alınması zor kararlardan önce kullan. Seçenekleri karşılaştırır, plan çıkarır. Kod yazmaz.
+description: "Yeni uygulama, yeni özellik, veri modeli değişikliği veya teknoloji seçimi gibi geri alınması zor kararlardan önce kullan. Seçenekleri karşılaştırır, plan çıkarır. Kod yazmaz."
 tools: Read, Grep, Glob, WebSearch
 model: opus
 maxTurns: 20

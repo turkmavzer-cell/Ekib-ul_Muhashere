@@ -1,6 +1,6 @@
 ---
 name: yazar
-description: Mağaza açıklaması, reklam, sosyal medya metni, yorum cevabı, arayüz metni veya çeviri (Türkçe, Arapça) gerektiğinde kullan.
+description: "Mağaza açıklaması, reklam, sosyal medya metni, yorum cevabı, arayüz metni veya çeviri (Türkçe, Arapça) gerektiğinde kullan."
 tools: Read, Grep, Glob, Write, Edit
 model: sonnet
 maxTurns: 15

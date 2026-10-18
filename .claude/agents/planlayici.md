@@ -1,6 +1,6 @@
 ---
 name: planlayici
-description: Büyük, çok adımlı veya belirsiz bir işin başında kullan: hedefi ve başarı ölçütünü netleştirir, işi adımlara böler, ajanları ve sırayı seçer. Kod yazmaz.
+description: "Büyük, çok adımlı veya belirsiz bir işin başında kullan: hedefi ve başarı ölçütünü netleştirir, işi adımlara böler, ajanları ve sırayı seçer. Kod yazmaz."
 tools: Read, Grep, Glob
 model: sonnet
 maxTurns: 15

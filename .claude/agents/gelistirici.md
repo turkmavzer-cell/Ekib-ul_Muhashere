@@ -1,6 +1,6 @@
 ---
 name: gelistirici
-description: Kod yazmak, özellik eklemek veya bir hatayı düzeltmek gerektiğinde kullan. Büyük işlerde onaylanmış plana göre çalışır.
+description: "Kod yazmak, özellik eklemek veya bir hatayı düzeltmek gerektiğinde kullan. Büyük işlerde onaylanmış plana göre çalışır."
 tools: Read, Grep, Glob, Write, Edit, Bash
 model: sonnet
 maxTurns: 40

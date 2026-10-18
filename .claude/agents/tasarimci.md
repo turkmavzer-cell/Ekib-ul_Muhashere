@@ -1,6 +1,6 @@
 ---
 name: tasarimci
-description: Yeni ekran, akış veya arayüz değişikliği tasarlanacağında ya da mevcut bir arayüz değerlendirileceğinde kullan.
+description: "Yeni ekran, akış veya arayüz değişikliği tasarlanacağında ya da mevcut bir arayüz değerlendirileceğinde kullan."
 tools: Read, Grep, Glob, Write, Edit
 model: sonnet
 maxTurns: 20

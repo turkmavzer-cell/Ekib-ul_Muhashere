@@ -1,6 +1,6 @@
 ---
 name: otomasyon
-description: Tekrar eden bir iş bot, betik, bildirim veya zamanlanmış göreve çevrilecekse kullan. Güvenli ve durdurulabilir otomasyon tasarlar.
+description: "Tekrar eden bir iş bot, betik, bildirim veya zamanlanmış göreve çevrilecekse kullan. Güvenli ve durdurulabilir otomasyon tasarlar."
 tools: Read, Grep, Glob, Write, Edit, Bash
 model: sonnet
 maxTurns: 35
