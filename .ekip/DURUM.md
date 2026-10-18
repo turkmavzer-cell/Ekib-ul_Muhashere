@@ -5,24 +5,25 @@
 
 ## Son güncelleme
 - Tarih: 2026-10-18
-- Aktif plan: `PLAN.md` (ekip iyileştirme planı, A0-A5 ve G1)
+- Aktif plan: `PLAN.md` (ekip iyileştirme planı)
 
 ## Bitenler
-- Dış araştırma (araştırmacı): Anthropic ajan ve bağlam rehberleri, hook, eval, eklenti paketleme, skill ve prompt uzunluğu.
-- İç inceleme (gözden geçirici): 2 kritik, 6 yüksek, 8 orta bulgu.
-- İyileştirme planı (mimar): 6 aşama, 3 karar önerisi.
+- A0: Ajan başlıkları geçerli YAML, README'ye elle duman testi.
+- A1: Güven sırası, kendi başına anlaşılan güvenlik atıfları, şablon yedek alanları.
+- A2: Uygulayıcı ajan sınırı, "Ajan açmadan önce" ve "Alt ajanlarla çalışma" kuralları, README kurulum bölümü.
+- A3: Yazma yetkili ajanların sınırları.
+- A4 + A5: Ders akışı (kullanıcı onayıyla), bakıcı yasak listesi, güvenlik bölümleri dosya başında.
 
 ## Yarım kalanlar
-- Plan repo sahibinin onayını bekliyor. Onaydan önce hiçbir aşama uygulanmayacak.
+- G1: GitHub'da `main` için kural seti. Repo sahibi kuracak.
 
 ## Sıradaki adım
-- Onay gelirse A0 (`planlayici.md` YAML düzeltmesi ve duman testi) ayrı bir dalda yapılır.
-- Repo sahibi G1'i (GitHub kural seti) kendisi kurar.
+- Repo sahibi G1'i kurar.
+- Yeni bir sohbette README'deki 7 maddelik elle duman testi yapılır. Sonuç bu dosyaya yazılır.
 
 ## Açık sorular (kullanıcıya)
-1. Güvenlik bölümü ve bakıcının yasak listesi değişiklikleri: ekip metni ayrı dalda hazırlasın ve sen birleştirerek onaylayasın mı, yoksa metni kendin mi yapıştırmak istersin?
-2. Eklenti paketleme ertelensin mi? (Öneri: evet, masaüstü kullanımı düzenli hale gelince yeniden bakılır.)
-3. `lessons.md` akışı: "oturum sonunda en fazla 1 ders, sen onaylarsan" yeterli mi, yoksa ders yalnızca sen "ders yaz" dediğinde mi önerilsin?
+- Yok. Varsayılanlar: güvenlik bölümü değişikliği "planı uygula" talimatıyla onaylandı sayıldı; ders akışı "oturum sonunda en fazla 1 ders, kullanıcı onaylarsa" olarak uygulandı.
 
 ## Bilinen sorunlar
-- `planlayici.md` frontmatter'ı geçersiz YAML (description içinde tırnaksız `: `). Planlayıcı ajanı yüklenmeyebilir. A0'da düzeltilecek.
+- `maxTurns` ve Haiku kuralının bulut sohbetinde uygulandığı test edilmedi.
+- Ekip reposu ve proje reposu birlikte açıkken ajanların hangi repodan yüklendiği duman testinin 7. maddesiyle kontrol edilecek.

@@ -18,8 +18,8 @@ Ekibin her ortamda (claude.ai bulut sohbeti ve masaüstü Claude Code) güvenili
 - `CLAUDE.md` güvenlik bölümü ve `bakici.md` yasak listesi yalnızca repo sahibinin onayıyla değişir.
 
 ## Onay
-- Durum: bekliyor
-- Tarih: 
+- Durum: onaylandı (repo sahibi: "planı uygula ve ekibi güncelle")
+- Tarih: 2026-10-18
 
 ## Adımlar
 
@@ -27,13 +27,13 @@ Durum işaretleri: `[ ]` bekliyor · `[~]` yapılıyor · `[x]` bitti · `[!]` s
 
 | # | Durum | Adım | Ajan | Çıktı | Not |
 |---|---|---|---|---|---|
-| A0 | [ ] | `planlayici.md` YAML düzeltmesi, 10 dosyanın YAML taraması, README'ye elle duman testi | gelistirici | Geçerli frontmatter, 6 maddelik test listesi | Kritik, planlayıcı şu an yüklenmeyebilir |
+| A0 | [x] | `planlayici.md` YAML düzeltmesi, 10 dosyanın YAML taraması, README'ye elle duman testi | gelistirici | Geçerli frontmatter, 6 maddelik test listesi | Kritik, planlayıcı şu an yüklenmeyebilir |
 | G1 | [ ] | GitHub'da `main` için kural seti: doğrudan push, force push, dal silme yasak, PR zorunlu | repo sahibi | GitHub ayarı | Kullanıcı yapar, ortamdan bağımsız sert sınır |
-| A1 | [ ] | Güven sırası (güvenlik bölümü), numaralı güvenlik atıflarını tek cümlelik içerikle değiştirme (6 dosya), şablon atıflarına yedek alan listesi, "ekip kuralları / proje CLAUDE.md'si" adlandırması | gelistirici + gozden-gecirici | Güvenlik bölümü metni repo sahibinin onayına | Güvenlik bölümü değişiyor |
-| A2 | [ ] | 3 ajan sınırı "uygulayıcı" için, doğrulama zinciri sınır dışı; gereksiz ajan çağrısını azaltma; hata düzeltmede para/veri varsa gözden geçirici; alt ajanın soru döndürmesi; `git status` ile yarım iş tespiti; çakışma ve 2 tur döngü sınırı; README kurulum bölümü | gelistirici + gozden-gecirici | `CLAUDE.md` (güvenlik dışı), `README.md` | Davranış değişir, duman testiyle bakılır |
-| A3 | [ ] | Yazma yetkili ajanlara `.ekip/` yazmama kuralı; devir mesajında onay yoksa kod yazmama; tasarımcı ve yazarın yazma kapsamı; gözden geçirici ve test-doğrulayıcı için Bash yalnız okuma/derleme/test | gelistirici + gozden-gecirici | 7 ajan dosyası | |
-| A4 | [ ] | "Günlük" bölümlerini tek kurala indirme; dersi kullanıcı onayıyla yazma; `lessons.md`'ye Durum ve Kaynak alanları; bakıcı yasak listesinin genişletilmesi | gelistirici + gozden-gecirici | `CLAUDE.md`, `lessons.md`, `bakici.md` | Bakıcı yasak listesi sahip onayıyla |
-| A5 | [ ] | Yalnızca kesin tekrarların kaldırılması (README), gelistirici ve otomasyonda güvenlik satırlarını başa alma | gelistirici | `README.md`, 2 ajan dosyası | Öz kontrol listeleri ölçüm olmadan kısaltılmaz |
+| A1 | [x] | Güven sırası (güvenlik bölümü), numaralı güvenlik atıflarını tek cümlelik içerikle değiştirme (6 dosya), şablon atıflarına yedek alan listesi, "ekip kuralları / proje CLAUDE.md'si" adlandırması | gelistirici + gozden-gecirici | Güvenlik bölümü metni repo sahibinin onayına | Güvenlik bölümü değişiyor |
+| A2 | [x] | 3 ajan sınırı "uygulayıcı" için, doğrulama zinciri sınır dışı; gereksiz ajan çağrısını azaltma; hata düzeltmede para/veri varsa gözden geçirici; alt ajanın soru döndürmesi; `git status` ile yarım iş tespiti; çakışma ve 2 tur döngü sınırı; README kurulum bölümü | gelistirici + gozden-gecirici | `CLAUDE.md` (güvenlik dışı), `README.md` | Davranış değişir, duman testiyle bakılır |
+| A3 | [x] | Yazma yetkili ajanlara `.ekip/` yazmama kuralı; devir mesajında onay yoksa kod yazmama; tasarımcı ve yazarın yazma kapsamı; gözden geçirici ve test-doğrulayıcı için Bash yalnız okuma/derleme/test | gelistirici + gozden-gecirici | 7 ajan dosyası | |
+| A4 | [x] | "Günlük" bölümlerini tek kurala indirme; dersi kullanıcı onayıyla yazma; `lessons.md`'ye Durum ve Kaynak alanları; bakıcı yasak listesinin genişletilmesi | gelistirici + gozden-gecirici | `CLAUDE.md`, `lessons.md`, `bakici.md` | Bakıcı yasak listesi sahip onayıyla |
+| A5 | [x] | Yalnızca kesin tekrarların kaldırılması (README), gelistirici ve otomasyonda güvenlik satırlarını başa alma | gelistirici | `README.md`, 2 ajan dosyası | Öz kontrol listeleri ölçüm olmadan kısaltılmaz |
 
 Ertelenenler: M1 masaüstü izin kuralları (masaüstü kullanımı başlayınca), E1 eklenti paketleme + skill + `plugin eval` (karar bekliyor).
 Yapılmayacaklar: M2 hook'lar, mimarın araçlarını değiştirme, toplu satır kısaltma.
