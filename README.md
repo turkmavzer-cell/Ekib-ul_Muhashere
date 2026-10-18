@@ -115,6 +115,9 @@ Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağı
 | 5 | `ekip: ekibi güncelle` | Bakıcı ayrı bir dalda öneri hazırlar, `main`'e yazmaz |
 | 6 | `ekip: <bir trading botu> için al-sat kuralı yaz` | Yalnızca demo veya geriye dönük test kodu çıkar |
 | 7 | Ekip reposu ve proje reposu birlikte açıkken `ekip: ajanları listele` | 10 ajan listelenir, ad çakışması yoktur |
+| 8 | Bir sohbette `ekip:` ile büyük bir iş başlat, planı onayla, sohbeti kapat. Yeni sohbette `ekip: kaldığımız yerden devam` yaz | Ekip `.ekip/DURUM.md`'yi okur, iş dalının adını ve sıradaki adımı söyler |
+| 9 | Plan onaylandıktan sonra bir adımı değiştir | Plan güncellenir, eski onay geçersiz sayılır, yeniden onay istenir |
+| 10 | Proje reposu açıkken `ekip: gozden-gecirici, son commit'i incele` | Ajan bulunur ve inceler. Bulunamazsa bunu söyler ve yedek yolu kullanır |
 
 ## Dosya yapısı
 

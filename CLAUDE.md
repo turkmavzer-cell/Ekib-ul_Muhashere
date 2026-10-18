@@ -53,7 +53,15 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 
 - Ajanlar bu dosyaları kendileri yazmaz. Ajanların çıktısını ana oturum (koordinatör) bu dosyalara işler. Böylece okuma yetkili ajanlar okuma yetkili kalır.
 - Her adım bittiğinde `PLAN.md` içindeki durumu güncelle: `[ ]` bekliyor, `[~]` yapılıyor, `[x]` bitti, `[!]` sorunlu.
-- Bu dosyalara sır, şifre veya token yazılmaz. Çalışılan repo herkese açıksa müşteri ve kişi bilgisi de yazılmaz. Kullanıcı isterse `.ekip/` klasörünü `.gitignore` içine ekleyerek yalnızca kendi bilgisayarında tutabilir.
+- Bu dosyalara sır, şifre veya token yazılmaz. Çalışılan repo herkese açıksa müşteri ve kişi bilgisi de yazılmaz. Masaüstünde kullanıcı isterse `.ekip/` klasörünü `.gitignore` içine ekleyerek yalnızca kendi bilgisayarında tutabilir. Bulutta bunu yapma: bulut oturumu geçicidir ve commit edilmeyen durum dosyaları oturumla birlikte kaybolur.
+
+## Git akışı
+
+- Her iş için tek bir dal açılır, örneğin `ekip/<kısa-iş-adı>`. Kod ve `.ekip/` değişiklikleri bu dalda yapılır. `main`'e doğrudan yazılmaz.
+- Commit ve push'u koordinatör yapar. Ajanlar commit veya push yapmaz.
+- Dala push etmek serbesttir. Pull request birleştirmek ve `main`'e yazmak yalnızca kullanıcının işidir.
+- **Kalıcılık:** Oturum sonunda koordinatör `.ekip/` değişikliklerini iş dalına commit edip push eder ve dal adını kullanıcıya söyler. Yeni oturumda `main`'deki `.ekip/` yoksa veya eskiyse `ekip/*` dallarına da bakılır.
+- **Derleme:** Dala push etmek bulut derlemesini (örneğin APK) tetikleyebilir. Koordinatör derleme sonucunu okuyabiliyorsa okur ve `test-dogrulayici`'ye verir. Okuyamıyorsa sonucu veya ekran görüntüsünü kullanıcıdan ister. Mağazaya yükleme ve sürüm yayını kullanıcının açık onayı olmadan yapılmaz.
 
 ## Doğrulama zinciri
 
@@ -66,6 +74,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 - **Soru:** Alt ajan kullanıcıyla konuşamaz. Belirsizlikle veya onay gerektiren bir adımla karşılaşırsa durur ve çıktısını "Kullanıcıya sorular" başlığıyla döndürür. Koordinatör soruyu kullanıcıya iletir, cevabı yeni bir devir mesajıyla ajana verir. Kullanıcı cevap vermezse soru `.ekip/DURUM.md` dosyasının "Açık sorular" bölümüne yazılır ve iş orada bekler.
 - **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte kod yazmaz.
 - **Yarım iş:** Dosya değiştiren bir ajandan sonra koordinatör `git status` ve `git diff --stat` ile gerçekte ne değiştiğine bakar. Ajanın anlattığı değişiklik farkla uyuşmuyorsa veya ajan adım sınırına takıldıysa adım `[!]` işaretlenir ve kullanıcıya söylenir.
+- **Ajan bulunamazsa:** İstenen ajan tipi oturumda yoksa bunu kullanıcıya söyle. Ajanın `.md` dosyasını devir mesajına ekleyerek genel bir ajanla çalıştır ve dosyadaki `tools` kısıtını devir mesajında da yaz. Okuma yetkili bir ajan bu yolla çalıştıysa ardından `git status` ile hiçbir dosyanın değişmediğini kontrol et.
 - **Çakışma:** Aynı dosyaya yazan ajanlar paralel çalışmaz.
 - **Çelişen öneriler:** İki ajan çelişirse koordinatör tek başına karar vermez, iki seçeneği gerekçeleriyle kullanıcıya sunar.
 - **Döngü sınırı:** İnceleme ve düzeltme döngüsü en fazla 2 tur sürer. Sorun hâlâ çözülmediyse dur ve kullanıcıya bildir.
