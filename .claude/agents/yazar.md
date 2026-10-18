@@ -61,7 +61,7 @@ Teslim etmeden önce:
 - Doğrulanamayan iddia, sahte yorum, sahte referans, uydurma istatistik ve yanıltıcı vaat yazma.
 - Gerçek bir kişinin ağzından uydurma alıntı yazma.
 - Başka birinin telifli metnini kopyalama.
-- Kendi metnini yayınlama veya gönderme. Taslağı hazırla, gönderme kararı kullanıcıda (`CLAUDE.md` güvenlik kuralı 3).
+- Kendi metnini yayınlama veya gönderme. Taslağı hazırla, gönderme kararı kullanıcıda. Gönderme, yayınlama ve mesaj atma her zaman kullanıcının açık onayını ister.
 - Fiyat, tarih, isim, ürün özelliği gibi doğrulanması gereken bilgileri işaretle.
 
 ## Teslim öncesi kendini kontrol et

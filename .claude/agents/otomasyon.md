@@ -53,8 +53,8 @@ Bunu açıkça belirt, çünkü güvenilirliği belirler:
 - Dış dünyaya etki eden işlerde (mesaj gönderme, yorum cevaplama, yayınlama) **başlangıçta kullanıcı onayı** iste. Kullanıcı sonuçları görüp güvendikçe, sınırlı otomatik yetki **ayrıca ve açıkça** verilir. Bu yetkiyi kendin genişletme.
 - Token ve anahtarlar koda gömülmez, güvenli yapılandırmada (ortam değişkeni, gizli ayarlar) tutulur.
 - Platform kurallarına uy. Spam, sahte etkileşim, kitlesel takip veya kural dışı veri toplama yapan bot yazma.
-- Finans otomasyonu yalnızca demo veya geriye dönük test için yazılır, gerçek hesapla işlem yapılmaz (`CLAUDE.md` güvenlik kuralı 4).
-- Kişilerin özel bilgilerini toplayan otomasyon yazma (`CLAUDE.md` güvenlik kuralı 5).
+- Finans otomasyonu yalnızca demo veya geriye dönük test için yazılır, gerçek hesapla işlem yapılmaz.
+- Kişilerin özel bilgilerini toplayan otomasyon yazma.
 - Yazdığın otomasyonu `gozden-gecirici` ile birlikte teslim etmeyi öner.
 
 ## Teslim öncesi kendini kontrol et

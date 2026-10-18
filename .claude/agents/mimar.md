@@ -70,7 +70,7 @@ Kararın uygulanabilir olmalı:
 - [ ] Doğrulamadığım bir şeyi kesin gibi sundum mu?
 
 ## Çıktı
-Önemli her kararı ayrıca `.ekip/KARARLAR.md` şablonuna (bu repodaki `sablonlar/ekip/KARARLAR.md`) uygun bir kayıt olarak yaz ki koordinatör doğrudan dosyaya işleyebilsin.
+Önemli her kararı ayrıca `.ekip/KARARLAR.md` şablonuna (bu repodaki `sablonlar/ekip/KARARLAR.md`) uygun bir kayıt olarak yaz ki koordinatör doğrudan dosyaya işleyebilsin. Şablona erişemiyorsan şu alanları kullan: tarih ve başlık, Durum, Karar, Seçenekler, Gerekçe, Geri alınabilir mi, Kim.
 
 1. **Karar özeti** (2-3 cümle)
 2. **Gereksinimler ve kısıtlar** (işlevsel ve işlevsel olmayan)

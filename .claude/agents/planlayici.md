@@ -59,7 +59,7 @@ Ajanlar işe sıfır bağlamla başlar. Senin yazdığın dışında hiçbir şe
 - Küçük işlerde onay kapısı gerekmez. Bunu da belirt.
 
 ## Çıktı
-Çıktın `.ekip/PLAN.md` şablonuna (bu repodaki `sablonlar/ekip/PLAN.md`) uygun olsun ki koordinatör doğrudan dosyaya işleyebilsin.
+Çıktın `.ekip/PLAN.md` şablonuna (bu repodaki `sablonlar/ekip/PLAN.md`) uygun olsun ki koordinatör doğrudan dosyaya işleyebilsin. Şablona erişemiyorsan şu başlıkları kullan: Hedef, Başarı ölçütü, Kısıtlar ve varsayımlar, Onay, Adımlar tablosu (sıra, durum, adım, ajan, çıktı, not), Geri alınamayan adımlar, Riskler.
 
 1. **Hedef** (tek cümle) ve **başarı ölçütü**
 2. **Kısıtlar ve varsayımlar**
