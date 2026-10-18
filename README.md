@@ -31,6 +31,32 @@ ekip: tam ekip, bu projeyi baştan değerlendir
 - Varsayılan olarak bir istekte en fazla 3 ajan çalışır.
 - Ajanlar işe başlamadan önce çalışılan reponun `CLAUDE.md` dosyasını okur.
 
+## Büyük işlerde akış
+
+```
+istek → plan (planlayici, gerekirse mimar) → SENİN ONAYIN → uygulama → plana uygunluk + kalite incelemesi → doğrulama
+```
+
+- **Onay kapısı:** Büyük işlerde plan onaylanmadan kod yazılmaz. Küçük işlerde bu adım atlanır.
+- **Doğrulama zinciri:** Bir ajanın "bitti" demesine güvenilmez. Gözden geçirici önce istenen her maddenin yapıldığını, sonra kaliteyi kontrol eder.
+
+## Oturumlar arası hafıza (`.ekip/`)
+
+Büyük işlerde çalışılan repoda `.ekip/` klasörü açılır. Yeni oturumda ekip önce bunu okur ve kaldığı yerden devam eder.
+
+| Dosya | İçerik |
+|---|---|
+| `PLAN.md` | Hedef, başarı ölçütü, adımlar ve durumları |
+| `KARARLAR.md` | Önemli kararlar ve gerekçeleri |
+| `DURUM.md` | Ne bitti, ne yarım, sırada ne var |
+
+Şablonlar `sablonlar/ekip/` klasöründedir. Bu dosyalara sır yazılmaz. İsterseniz `.ekip/` klasörünü `.gitignore`'a ekleyip yalnızca kendi bilgisayarınızda tutabilirsiniz.
+
+## Maliyet kontrolü
+
+- Basit işlerde ajanlar ucuz ve hızlı Haiku modeliyle çağrılır.
+- Her ajanın en fazla kaç adım çalışacağı (`maxTurns`) sınırlıdır.
+
 Ayrıntılı kurallar ve güvenlik sınırları için [CLAUDE.md](CLAUDE.md) dosyasına bakın.
 
 ## Dosya yapısı
@@ -40,10 +66,11 @@ Ayrıntılı kurallar ve güvenlik sınırları için [CLAUDE.md](CLAUDE.md) dos
 ├── README.md
 ├── CLAUDE.md          Ekip kuralları ve güvenlik sınırları
 ├── lessons.md         Öğrenme günlüğü (yalnızca genel dersler)
+├── sablonlar/ekip/    .ekip/ durum dosyası şablonları
 └── .claude/agents/    Ajan tanımları
 ```
 
-Ajan dosyaları Claude Code'un alt ajan biçimindedir (`name`, `description`, `tools`, `model` alanları).
+Ajan dosyaları Claude Code'un alt ajan biçimindedir (`name`, `description`, `tools`, `model`, `maxTurns` alanları). `description` alanı ajanın **ne zaman** çağrılacağını anlatır, böylece Claude Code ajanları kendiliğinden doğru zamanda seçebilir.
 
 ## Kendini geliştirme
 
