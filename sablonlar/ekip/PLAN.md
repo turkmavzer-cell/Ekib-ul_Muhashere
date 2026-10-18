@@ -12,8 +12,10 @@
 - 
 
 ## Onay
-- Durum: bekliyor <!-- bekliyor / onaylandı / değiştirildi -->
+- Durum: bekliyor <!-- bekliyor / onaylandı / değiştirildi / iptal -->
 - Tarih: 
+- Sürüm: 1 <!-- plan her değiştiğinde artar, eski onay geçersiz olur -->
+- Kapsam: <!-- onayın kapsadığı adımlar -->
 
 ## Adımlar
 

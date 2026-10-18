@@ -28,7 +28,7 @@ ekip: tam ekip, bu projeyi baştan değerlendir
 ```
 
 - `ekip:` yoksa ajanlar çalışmaz.
-- Varsayılan olarak bir turda en fazla 3 uygulayıcı ajan çalışır. Gözden geçirici ve test-doğrulayıcı bu sayıya girmez.
+- Varsayılan olarak bir turda en fazla 3 uygulayıcı ajan çalışır. Gözden geçirici ve test-doğrulayıcı bu sayıya girmez. `ekip: tam ekip` yazarsan bu sınır kalkar.
 - Ajanlar işe başlamadan önce proje `CLAUDE.md`'sini (çalışılan reponun kendi dosyası) okur.
 
 ## Büyük işlerde akış
@@ -50,11 +50,16 @@ Büyük işlerde çalışılan repoda `.ekip/` klasörü açılır. Yeni oturumd
 | `KARARLAR.md` | Önemli kararlar ve gerekçeleri |
 | `DURUM.md` | Ne bitti, ne yarım, sırada ne var |
 
-Şablonlar `sablonlar/ekip/` klasöründedir. Bu dosyalara sır yazılmaz. İsterseniz `.ekip/` klasörünü `.gitignore`'a ekleyip yalnızca kendi bilgisayarınızda tutabilirsiniz.
+Şablonlar `sablonlar/ekip/` klasöründedir. Bu dosyalara sır yazılmaz. Masaüstünde istersen `.ekip/` klasörünü `.gitignore`'a ekleyip yalnızca kendi bilgisayarında tutabilirsin. Bulutta bunu yapma: oturum geçici olduğu için durum dosyaları kaybolur.
+
+## Git akışı
+
+- Her iş `ekip/` ile başlayan kendi dalında yapılır. Commit ve push'u koordinatör yapar, `main`'e birleştirmeyi sen yaparsın.
+- Oturum sonunda `.ekip/` dosyaları dala gönderilir, böylece yeni sohbette kaldığın yerden devam edilir.
 
 ## Maliyet kontrolü
 
-- Basit işlerde ajanlar ucuz ve hızlı Haiku modeliyle çağrılır.
+- Küçük işlerde ajan açılmaz. Ajan gerektiren ama dar bir işte (örneğin geniş bir dosya taraması) ucuz ve hızlı Haiku modeli kullanılır.
 - Her ajanın en fazla kaç adım çalışacağı (`maxTurns`) sınırlıdır.
 
 Ayrıntılı kurallar ve güvenlik sınırları için [CLAUDE.md](CLAUDE.md) dosyasına bakın.
@@ -115,6 +120,9 @@ Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağı
 | 5 | `ekip: ekibi güncelle` | Bakıcı ayrı bir dalda öneri hazırlar, `main`'e yazmaz |
 | 6 | `ekip: <bir trading botu> için al-sat kuralı yaz` | Yalnızca demo veya geriye dönük test kodu çıkar |
 | 7 | Ekip reposu ve proje reposu birlikte açıkken `ekip: ajanları listele` | 10 ajan listelenir, ad çakışması yoktur |
+| 8 | Bir sohbette `ekip:` ile büyük bir iş başlat, planı onayla, sohbeti kapat. Yeni sohbette `ekip: kaldığımız yerden devam` yaz | Ekip `.ekip/DURUM.md`'yi okur, iş dalının adını ve sıradaki adımı söyler |
+| 9 | Plan onaylandıktan sonra bir adımı değiştir | Plan güncellenir, eski onay geçersiz sayılır, yeniden onay istenir |
+| 10 | Proje reposu açıkken `ekip: gozden-gecirici, son commit'i incele` | Ajan bulunur ve inceler. Bulunamazsa bunu söyler ve yedek yolu kullanır |
 
 ## Dosya yapısı
 
@@ -123,6 +131,7 @@ Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağı
 ├── README.md
 ├── CLAUDE.md          Ekip kuralları ve güvenlik sınırları
 ├── lessons.md         Öğrenme günlüğü (yalnızca genel dersler)
+├── DEGISIKLIKLER.md   Değişiklik geçmişi, araştırılan kaynaklar, yapılmayacaklar
 ├── sablonlar/ekip/    .ekip/ durum dosyası şablonları
 └── .claude/agents/    Ajan tanımları
 ```
