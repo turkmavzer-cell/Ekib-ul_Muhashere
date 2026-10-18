@@ -16,10 +16,7 @@
 - Plan B, adım B1-B8, iş dalında uygulandı. Koordinatörün kendi kontrolü: 10 ajan geçerli YAML, araç/model/adım sınırları değişmedi, güvenlik bölümü B commit'lerinde değişmedi, plandaki 30 madde dosyalarda var.
 
 ## Yarım kalanlar
-- B9: bağımsız inceleme tamamlandı (2. tur: onay). Birleştirmeden önce repo sahibinin iki ayrı onayı gerekiyor:
-  1. Güvenlik bölümü farkı (`54a3b31`, güven sırası (a) maddesi).
-  2. Bakıcının korunan bölüm farkları (B8 ve 1. düzeltme turu).
-- Onaylardan sonra repo sahibi pull request'i birleştirir.
+- B9: bağımsız inceleme tamamlandı (2. tur: onay). Repo sahibi 2026-10-18'de güvenlik bölümü farkını ve bakıcının korunan bölüm farklarını ayrı ayrı görüp onayladı. Kalan tek adım: repo sahibinin pull request'i birleştirmesi.
 
 ## Sıradaki adım
 - Birleştirmeden sonra yeni bir sohbette README'deki 10 maddelik elle duman testi denenir.
@@ -30,8 +27,7 @@
   - Düşük: `bakici.md` dal adı ve yetki metni `CLAUDE.md` ile eşitlenmeli. Bu değişiklik bakıcının korunan bölümüne dokunduğu için ayrı onay gerekir.
 
 ## Açık sorular (kullanıcıya)
-1. Güvenlik bölümü farkını onaylıyor musun?
-2. Bakıcının korunan bölüm farklarını onaylıyor musun?
+- Yok.
 
 ## Bilinen sorunlar
 - `maxTurns` ve Haiku kuralının bulut sohbetinde uygulandığı test edilmedi.

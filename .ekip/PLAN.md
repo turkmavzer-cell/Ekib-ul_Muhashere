@@ -27,7 +27,7 @@ Ekibin birden fazla oturuma yayılan, iki repo birlikte açıkken yürüyen ve p
 
 Durum işaretleri: `[ ]` bekliyor · `[~]` yapılıyor · `[x]` bitti · `[!]` sorunlu
 
-B1-B8 `duzeltme/guven-sirasi` dalında uygulandı. Bağımsız inceleme: 1. tur "düzeltme gerekli" (10 bulgu), 1. düzeltme turundan sonra 2. tur "onay" (2026-10-18). B1-B8 bu karara dayanarak `[x]`. B9, repo sahibinin ayrı onayları ve birleştirmesi bekleniyor.
+B1-B8 `duzeltme/guven-sirasi` dalında uygulandı. Bağımsız inceleme: 1. tur "düzeltme gerekli" (10 bulgu), 1. düzeltme turundan sonra 2. tur "onay" (2026-10-18). B1-B8 bu karara dayanarak `[x]`. Repo sahibi iki ayrı onayı 2026-10-18'de verdi. B9 için yalnızca birleştirme bekleniyor.
 
 Not: B5'teki Bash kuralı 1. düzeltme turunda değişti. Güncel metin `test-dogrulayici.md` ve `gozden-gecirici.md` içinde: `npm ci` kullanılır, izin yoksa `cap sync` gibi komutlar çalıştırılmaz, bir dosya yine de değişirse geri alınmaz, raporlanır.
 

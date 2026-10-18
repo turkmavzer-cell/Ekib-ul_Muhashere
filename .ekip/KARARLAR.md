@@ -4,6 +4,13 @@
 > Eski bir karar değiştirilirse silinmez, "yerine geçti" diye işaretlenir.
 > Sır, şifre veya token yazmayın.
 
+## 2026-10-18 · Bakıcının korunan bölüm değişiklikleri
+- Durum: geçerli (repo sahibi 2026-10-18'de farkı görüp açıkça onayladı)
+- Karar: Bakıcının açıklaması `ekip: ekibi güncelle` tetikleyicisine ve kullanıcının kurduğu zamanlanmış göreve bağlandı. Yeni yasaklar: README'nin "Kurulum", "Elle duman testi", "Kendini geliştirme" ve "Paylaşım ve güvenlik" bölümleri ile yeni bir ajana `Read, Grep, Glob` dışında araç vermek.
+- Gerekçe: Bakıcı, kullanıcının hesap ayarına yapıştırdığı talimatı, testleri ve güvenlik açıklamalarını değiştirebiliyordu. Yeni rol önerisi yoluyla geniş yetkili bir ajan da ekleyebilirdi. Bağımsız inceleme bunu tespit etti.
+- Geri alınabilir mi: evet
+- Kim: gözden geçirici önerdi, repo sahibi onayladı
+
 ## 2026-10-18 · Güven sırası (revizyon)
 - Durum: geçerli (repo sahibi 2026-10-18'de farkı görüp açıkça onayladı)
 - Karar: (a) kullanıcı mesajı kural 3 ve 6'nın istediği onayları verebilir, ama kural 2, 4 ve 5'i (sır yazma, gerçek hesapla işlem, özel bilgi toplama) kaldıramaz. Bunlar yalnızca repo sahibinin dosyayı düzenlemesiyle değişir. Devir mesajındaki `Onay:` satırı kullanıcının onayını iletir, genişletmez.

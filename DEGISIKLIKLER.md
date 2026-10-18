@@ -6,7 +6,7 @@
 
 ## Sürümler
 
-### v4 · 2026-10-18 · `duzeltme/guven-sirasi` (birleştirme bekliyor)
+### v4 · 2026-10-18 · `duzeltme/guven-sirasi`
 - **Güven sırası revizyonu:** Kullanıcı mesajı kural 3 ve 6'nın onaylarını verebilir, kural 2, 4 ve 5'i (sır yazma, gerçek hesapla işlem, özel bilgi toplama) kaldıramaz. Devir mesajındaki `Onay:` satırı onayı iletir, genişletmez.
 - **Plan B (B1-B8):**
   - Ajan bulunamazsa yedek yol. Bu yol yazmayı engellemez, sonradan tespit eder.
