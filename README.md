@@ -131,7 +131,7 @@ Ajan dosyaları Claude Code'un alt ajan biçimindedir (`name`, `description`, `t
 
 ## Kendini geliştirme
 
-1. İşlerin sonunda ajanlar `lessons.md`'ye kısa bir ders önerir.
+1. İşlerin sonunda ajanlar genel bir ders önerir. Ekip en fazla birini sana sorar, yalnızca sen onaylarsan `lessons.md`'ye eklenir.
 2. `bakici` ajanı bu günlükten ajan dosyaları için değişiklik önerir. Bunu ayrı bir dal veya pull request olarak yapar.
 3. Repo sahibi öneriyi inceleyip birleştirir. Otomatik birleştirme yoktur.
 4. Güvenlik kuralları yalnızca repo sahibi tarafından elle değiştirilir.

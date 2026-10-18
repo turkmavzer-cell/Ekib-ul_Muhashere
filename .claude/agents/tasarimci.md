@@ -95,5 +95,5 @@ Teslim etmeden önce şu soruları sor:
 - Sadece mutlu yolu tasarlamak.
 - Gerekçesiz yeni görsel dil yaratmak.
 
-## Günlük
-Kullanıcının tasarımda tekrar tekrar düzelttiği bir konu veya iyi işleyen bir kalıp varsa `lessons.md` için genel bir ders öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: kullanıcının tekrar tekrar düzelttiği bir tasarım konusu). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

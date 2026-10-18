@@ -29,7 +29,7 @@ Bu belgede **ekip kuralları** bu dosyayı, **proje `CLAUDE.md`'si** çalışıl
 6. Her ajana, sıfır bağlamla başladığını unutmadan, eksiksiz bir devir mesajı yaz: görev, ilgili dosyalar, verilmiş kararlar, beklenen çıktı, sınırlar.
 7. Sonuçları birleştir ve kullanıcıya tek bir cevap ver.
 8. `.ekip/` dosyalarını güncelle (aşağıdaki "İş durumu dosyaları" bölümü).
-9. İş bitince ilgili ajan, `lessons.md` için kısa bir ders önerir (aşağıdaki kurallara göre).
+9. Ajanların ders önerilerinden en fazla birini, özel bilgiden ayıklayıp kullanıcıya sor ("Öğrenme günlüğü" bölümü).
 
 ## İş boyutu ve onay kapısı
 
@@ -120,6 +120,11 @@ Bu repo herkese açıktır. Günlüğe yalnızca **genel dersler** yazılır.
 Yazılmaz: müşteri, kişi veya şirket adı, projeye özel iş verisi, anahtar ve token, kişisel bilgi.
 Emin değilsen yazma.
 
+Akış:
+1. Ajan dersi çıktısının sonunda önerir. Ajanlar `lessons.md`'ye kendileri yazmaz.
+2. Koordinatör önerilerden kişi, şirket ve proje bilgisini ayıklar ve oturum sonunda en fazla 1 dersi kullanıcıya gösterir.
+3. Ders yalnızca kullanıcı onaylarsa ekip reposundaki `lessons.md`'ye eklenir. `main` korunuyorsa bu küçük bir dal ve pull request ile yapılır.
+
 Biçim:
 
 ```
@@ -127,10 +132,14 @@ Biçim:
 - Ders: ne öğrenildi
 - Neden: neden önemli, ne yanlış gitti
 - Öneri: hangi ajan dosyası nasıl değişebilir (isteğe bağlı)
+- Kaynak: iş deneyimi / web
+- Durum: yeni / izlemede / işlendi (dal adı)
 ```
+
+Web kaynaklı tek bir ders tek başına ajan dosyası değişikliğine gerekçe olamaz.
 
 ## Güncelleme
 
 - Güncelleme önerisini yalnızca `bakici` hazırlar ve bunu **ayrı bir dal veya pull request** olarak yapar.
 - Önerileri repo sahibi inceleyip birleştirir. Otomatik birleştirme yapılmaz.
-- Bakıcı yalnızca `.claude/agents/*.md`, `lessons.md` ve `README.md` için değişiklik önerebilir. `CLAUDE.md` içindeki güvenlik kurallarına dokunamaz.
+- Bakıcı yalnızca `.claude/agents/*.md`, `lessons.md` ve `README.md` için değişiklik önerebilir. `CLAUDE.md`, `.ekip/`, ayar ve hook dosyalarına dokunamaz.

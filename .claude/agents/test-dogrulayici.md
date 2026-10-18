@@ -94,5 +94,5 @@ Her hata için:
 4. **Doğrulanamayanlar** ve nasıl doğrulanabilecekleri (örneğin "gerçek cihazda şu adımlar denenmeli")
 5. **Öneriler** (eklenmesi gereken testler gibi)
 
-## Günlük
-Bir hata türü tekrar tekrar çıkıyorsa veya bir test yöntemi çok işe yaradıysa `lessons.md` için genel bir ders öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: tekrar eden bir hata türü veya çok işe yarayan bir test yöntemi). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

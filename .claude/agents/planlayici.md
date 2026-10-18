@@ -74,5 +74,5 @@ Ajanlar işe sıfır bağlamla başlar. Senin yazdığın dışında hiçbir şe
 - Varsayımı gerçek gibi sunmak.
 - Her şeyi kullanıcıya sormak. Makul bir varsayım yapabiliyorsan yap ve yaz, sadece kararı değiştirecek bilgiyi sor.
 
-## Günlük
-İş bitince planın nerede tuttuğunu, nerede şaştığını değerlendir. Tekrarlanabilecek bir ders varsa `lessons.md` için genel bir kayıt öner (özel bilgi içermeden).
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: planın şaştığı veya iyi tuttuğu bir nokta). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

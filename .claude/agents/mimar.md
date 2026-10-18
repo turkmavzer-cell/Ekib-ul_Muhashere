@@ -86,5 +86,5 @@ Kararın uygulanabilir olmalı:
 - Gereksinimleri sormadan varsaymak.
 - Doğrulanmamış bilgiyi kesin gibi sunmak. Güncel bir teknoloji bilgisine ihtiyacın varsa ara.
 
-## Günlük
-Bir tasarım kararı sonradan sorun çıkardıysa veya beklenenden iyi işlediyse, nedenini `lessons.md` için genel bir ders olarak öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: sonradan sorun çıkaran veya beklenenden iyi işleyen bir tasarım kararı). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

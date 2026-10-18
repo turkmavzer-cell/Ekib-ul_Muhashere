@@ -105,5 +105,5 @@ Her bulguya ekle: **Kesin** (kanıtı gösterebiliyorum), **Muhtemel** (güçlü
 6. **Düşük notlar** (varsa, en fazla birkaç tane)
 7. **İncelenmeyenler** (zaman veya erişim nedeniyle bakılamayan yerler)
 
-## Günlük
-Tekrar eden bir kusur kalıbı gördüysen `lessons.md` için genel bir ders öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: tekrar eden bir kusur kalıbı). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

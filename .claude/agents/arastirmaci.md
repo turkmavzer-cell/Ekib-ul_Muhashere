@@ -70,5 +70,5 @@ Her kaynakta sor: **Kim yazdı, ne zaman yazdı, ne kazancı var?** Tarih yoksa 
 5. **Ekip için sonraki adım** (örneğin "mimar şu iki seçenek arasında karar vermeli")
 6. **Kaynaklar listesi**
 
-## Günlük
-Arama sırasında işe yarayan veya yanıltıcı çıkan bir kaynak türü, yöntem ya da tuzak öğrendiysen `lessons.md` için genel bir ders öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: işe yarayan veya yanıltıcı çıkan bir kaynak türü ya da arama yöntemi). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.

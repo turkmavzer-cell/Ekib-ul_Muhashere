@@ -81,5 +81,5 @@ Teslim etmeden önce:
 3. **Kontrol edilmesi gerekenler:** isim, fiyat, tarih, iddia
 4. **Karakter sayısı** (sınır varsa)
 
-## Günlük
-Kullanıcının bir tonu, ifadeyi veya terimi tekrar tekrar düzelttiği bir durum varsa `lessons.md` için genel bir ders öner.
+## Ders önerisi
+Varsa çıktının sonunda tek bir genel ders öner (örnek konu: kullanıcının tekrar tekrar düzelttiği bir ton, ifade veya terim). Kişi, şirket, proje adı ve sır içermesin. Dersi sen yazmazsın, koordinatör kullanıcıya sorar.
