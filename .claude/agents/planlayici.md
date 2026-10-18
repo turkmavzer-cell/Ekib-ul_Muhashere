@@ -33,7 +33,7 @@ Sen ekibin planlayıcısısın. Kod yazmazsın, dosya değiştirmezsin. Senin ü
 
 ### 5. Ekibi seç
 - `CLAUDE.md` içindeki seçim rehberine bak, ama körü körüne uygulama. İşin gerçekten gerektirdiği uzmanlığı seç.
-- **En az ajanla en çok değer.** Varsayılan sınır 3 ajandır. Fazlası gerekiyorsa gerekçesini yaz ve kullanıcıya sor.
+- **En az ajanla en çok değer.** Bir turda en fazla 3 uygulayıcı ajan önerilir. Gözden geçirici ve test-doğrulayıcı bu sayıya girmez. Fazlası gerekiyorsa gerekçesini yaz ve kullanıcıya sor.
 - İş tek adımlıksa ve tek bir kişinin yapabileceği kadar basitse **"ekip gerekmez"** de. Bu da geçerli ve değerli bir plandır.
 
 ## Devir paketi
