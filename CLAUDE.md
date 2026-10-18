@@ -22,7 +22,7 @@ Bu belgede **ekip kuralları** bu dosyayı, **proje `CLAUDE.md`'si** çalışıl
 ## Çalışma sırası
 
 1. Proje `CLAUDE.md`'si varsa önce onu oku. Bu dosya teknik kuralları belirler, ekibin güvenlik kurallarını gevşetemez.
-2. Çalışılacak repoda `.ekip/` klasörü varsa önce `DURUM.md`, sonra `PLAN.md` ve `KARARLAR.md` dosyalarını oku. Yarım kalmış bir iş varsa kaldığı yerden devam et ve bunu kullanıcıya söyle.
+2. Çalışılacak repoda `.ekip/` klasörü varsa önce `DURUM.md`, sonra `PLAN.md` ve `KARARLAR.md` dosyalarını oku. Yarım kalmış bir iş varsa kaldığı yerden devam et ve bunu kullanıcıya söyle. Ekip reposunun kendi `.ekip/` klasörü yalnızca istek ekibin kendisiyle ilgiliyse okunur. Yeni iş, mevcut plandan farklı bir işse plan üzerine yazılmaz: kullanıcıya hangisiyle devam edileceği sorulur ve kapanan plan `.ekip/arsiv/` altına tarihle taşınır.
 3. İşin boyutunu belirle (aşağıdaki "İş boyutu" bölümü).
 4. İsteğe göre ajanları seç. Hangilerini seçtiğini ve nedenini tek satırda söyle.
 5. Birbirinden bağımsız işler paralel, birbirine bağlı işler sırayla çalışır.
@@ -35,10 +35,11 @@ Bu belgede **ekip kuralları** bu dosyayı, **proje `CLAUDE.md`'si** çalışıl
 
 - **Küçük iş:** Tek dosya veya tek adım, sonucu kolayca geri alınabilir. Doğrudan yap, `.ekip/` dosyası gerekmez.
 - **Büyük iş:** Birden fazla adım, birden fazla dosya, yeni özellik, veri modeli değişikliği veya geri alınamayan bir adım içeriyor.
-  1. Önce `planlayici` (gerekirse `mimar`) planı çıkarır.
-  2. Plan `.ekip/PLAN.md` dosyasına yazılır ve kullanıcıya özetlenir.
-  3. **Kullanıcı planı onaylamadan kod yazılmaz.** Kullanıcı planı değiştirirse plan güncellenir ve tekrar onaya sunulur.
+  1. Önce `planlayici` (gerekirse `mimar`) planı çıkarır. Tasarımı değiştirecek sorular (örneğin "düşman ateş etsin mi?") mimar çalışmadan önce kullanıcıya sorulur.
+  2. Plan, mimar varsa onun çıktısıyla birlikte `.ekip/PLAN.md` dosyasına yazılır ve kullanıcıya özetlenir. Onay kapısı tektir: plan ve mimar tasarımı birlikte onaylanır.
+  3. **Kullanıcı planı onaylamadan kod yazılmaz.** Kullanıcı planı değiştirirse plan sürümü artar, eski onay geçersiz olur ve plan tekrar onaya sunulur.
   4. Onaydan sonra adımlar sırayla uygulanır.
+- Davranışı anlatan metinler (mağaza açıklaması, sürüm notu) davranış doğrulanmadan taslak kalır, kesinleşmez. Böylece yapılmamış bir özellik vaat edilmez.
 - Kullanıcı "doğrudan yap" derse onay kapısı atlanabilir. Bu durumda bile geri alınamayan adımlar için ayrıca onay istenir (güvenlik kuralı 3).
 
 ## İş durumu dosyaları (`.ekip/`)
@@ -72,7 +73,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 ## Alt ajanlarla çalışma
 
 - **Soru:** Alt ajan kullanıcıyla konuşamaz. Belirsizlikle veya onay gerektiren bir adımla karşılaşırsa durur ve çıktısını "Kullanıcıya sorular" başlığıyla döndürür. Koordinatör soruyu kullanıcıya iletir, cevabı yeni bir devir mesajıyla ajana verir. Kullanıcı cevap vermezse soru `.ekip/DURUM.md` dosyasının "Açık sorular" bölümüne yazılır ve iş orada bekler.
-- **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte kod yazmaz.
+- **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte dosya yazmaz. Plan değiştiyse veya iptal edildiyse eski onay satırı kullanılmaz. İptalde yarım kalan değişiklikler kullanıcıya gösterilir, geri alma kararı onundur.
 - **Yarım iş:** Dosya değiştiren bir ajandan sonra koordinatör `git status` ve `git diff --stat` ile gerçekte ne değiştiğine bakar. Ajanın anlattığı değişiklik farkla uyuşmuyorsa veya ajan adım sınırına takıldıysa adım `[!]` işaretlenir ve kullanıcıya söylenir.
 - **Ajan bulunamazsa:** İstenen ajan tipi oturumda yoksa bunu kullanıcıya söyle. Ajanın `.md` dosyasını devir mesajına ekleyerek genel bir ajanla çalıştır ve dosyadaki `tools` kısıtını devir mesajında da yaz. Okuma yetkili bir ajan bu yolla çalıştıysa ardından `git status` ile hiçbir dosyanın değişmediğini kontrol et.
 - **Çakışma:** Aynı dosyaya yazan ajanlar paralel çalışmaz.
