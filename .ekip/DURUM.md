@@ -15,18 +15,23 @@
 - Plan B, adım B1-B8, iş dalında uygulandı. Koordinatörün kendi kontrolü: 10 ajan geçerli YAML, araç/model/adım sınırları değişmedi, güvenlik bölümü B commit'lerinde değişmedi, plandaki 30 madde dosyalarda var.
 
 ## Yarım kalanlar
-- B9: bağımsız inceleme. 1. tur "düzeltme gerekli" dedi (4 yüksek, 6 orta bulgu). 1. düzeltme turu yapıldı, 2. inceleme bekleniyor. Döngü sınırı 2 tur.
-- Bakıcının korunan bölümüne dokunan farklar (B8 ve 1. düzeltme turu: README korumaları, yeni ajana araç kısıtı) repo sahibine ayrıca gösterilip onaylanacak.
-- İş dalının pull request ile `main`'e birleştirilmesi (repo sahibi).
+- B9: bağımsız inceleme tamamlandı (2. tur: onay). Birleştirmeden önce repo sahibinin iki ayrı onayı gerekiyor:
+  1. Güvenlik bölümü farkı (`54a3b31`, güven sırası (a) maddesi).
+  2. Bakıcının korunan bölüm farkları (B8 ve 1. düzeltme turu).
+- Onaylardan sonra repo sahibi pull request'i birleştirir.
 
 ## Sıradaki adım
-1. Kullanıcı `ekip: gozden-gecirici, duzeltme/guven-sirasi dalını incele` gibi bir mesaj yazar.
-2. Gözden geçirici iki aşamalı inceler, en fazla 2 düzeltme turu.
-3. Repo sahibi pull request'i birleştirir.
-4. Yeni bir sohbette README'deki 10 maddelik elle duman testi denenir.
+- Birleştirmeden sonra yeni bir sohbette README'deki 10 maddelik elle duman testi denenir.
+- Sonraki iş (Plan C adayı, henüz onaylanmadı), 2. inceleme turunun orta bulguları:
+  - Orta-1: Olumsuz karar ("düzeltme gerekli", "kaldı") düzeltme döngüsüne gitmeli, "Kullanıcıya sorular" dönüşü hata sayılmamalı.
+  - Orta-2: Yedek yolda başlangıç kaydı eksik (`status --porcelain --ignored`, diff özeti, `for-each-ref`).
+  - Orta-3: Workflow kontrolü, `.github/workflows` değişen her push'tan önce tekrarlanmalı. Açık PR dallarındaki `.ekip/` de aranmalı.
+  - Düşük: `bakici.md` dal adı ve yetki metni `CLAUDE.md` ile eşitlenmeli. Bu değişiklik bakıcının korunan bölümüne dokunduğu için ayrı onay gerekir.
 
 ## Açık sorular (kullanıcıya)
-1. Bağımsız gözden geçiricinin dersi `lessons.md`'ye eklensin mi: "Bir adımın bitti işareti yalnızca bağımsız doğrulayıcının kararına bağlanmalı; genel onay, özel onay isteyen adımların yerine geçmemeli."
+1. Güvenlik bölümü farkını onaylıyor musun?
+2. Bakıcının korunan bölüm farklarını onaylıyor musun?
+3. Bağımsız gözden geçiricinin dersi `lessons.md`'ye eklensin mi: "Bir adımın bitti işareti yalnızca bağımsız doğrulayıcının kararına bağlanmalı; genel onay, özel onay isteyen adımların yerine geçmemeli."
 
 ## Bilinen sorunlar
 - `maxTurns` ve Haiku kuralının bulut sohbetinde uygulandığı test edilmedi.
