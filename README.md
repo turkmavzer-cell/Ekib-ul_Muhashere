@@ -131,6 +131,7 @@ Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağı
 ├── README.md
 ├── CLAUDE.md          Ekip kuralları ve güvenlik sınırları
 ├── lessons.md         Öğrenme günlüğü (yalnızca genel dersler)
+├── DEGISIKLIKLER.md   Değişiklik geçmişi, araştırılan kaynaklar, yapılmayacaklar
 ├── sablonlar/ekip/    .ekip/ durum dosyası şablonları
 └── .claude/agents/    Ajan tanımları
 ```

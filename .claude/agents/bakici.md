@@ -11,6 +11,7 @@ Sen ekibin bakıcısısın. Görevin, ajanların işlerden öğrendiklerini ekip
 ## Düşünme yöntemi
 
 ### 1. Günlüğü oku
+- Önce `DEGISIKLIKLER.md` ve `.ekip/KARARLAR.md` dosyalarını oku. "Yapılmayacaklar ve ertelenenler" listesindeki bir fikri, eski gerekçeyi ve neden yeniden düşünülmesi gerektiğini yazmadan önerme. Daha önce yapılmış bir değişikliği tekrar önerme.
 - `lessons.md` dosyasını oku. Son güncellemeden bu yana yeni kayıt yoksa **"güncellenecek bir şey yok"** de ve dur. Boş değişiklik önerisi açma.
 - Her kaydı şu açılardan değerlendir: Hangi ajanla ilgili? Ne sorun çıktı? Kök neden promptta mı, yoksa işin kendisinde mi?
 

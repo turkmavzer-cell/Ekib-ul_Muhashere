@@ -10,6 +10,7 @@
 - Önceki plan: `arsiv/2026-10-18-plan-A.md` (kapandı)
 
 ## Bitenler
+- Kayıt düzeni: `DEGISIKLIKLER.md` (geçmiş, araştırılanlar, yapılmayacaklar), `lessons.md`'ye 9 ders ve CLAUDE.md'ye "Kayıtlar ve tekrarı önleme" kuralı eklendi. Kullanıcı 2026-10-18'de "tüm değişiklik ve öğrenilenler kayıt altına alınsın" dedi.
 - Plan A kapandı. G1 (`main` koruması) kuruldu ve test edildi.
 - Güven sırası revizyonu repo sahibinin açık onayıyla hazırlandı.
 - Plan B, adım B1-B8, iş dalında uygulandı. Koordinatörün kendi kontrolü: 10 ajan geçerli YAML, araç/model/adım sınırları değişmedi, güvenlik bölümü B commit'lerinde değişmedi, plandaki 30 madde dosyalarda var.
@@ -31,7 +32,6 @@
 ## Açık sorular (kullanıcıya)
 1. Güvenlik bölümü farkını onaylıyor musun?
 2. Bakıcının korunan bölüm farklarını onaylıyor musun?
-3. Bağımsız gözden geçiricinin dersi `lessons.md`'ye eklensin mi: "Bir adımın bitti işareti yalnızca bağımsız doğrulayıcının kararına bağlanmalı; genel onay, özel onay isteyen adımların yerine geçmemeli."
 
 ## Bilinen sorunlar
 - `maxTurns` ve Haiku kuralının bulut sohbetinde uygulandığı test edilmedi.

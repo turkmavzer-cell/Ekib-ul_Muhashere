@@ -152,6 +152,22 @@ Biçim:
 
 Web kaynaklı tek bir ders tek başına ajan dosyası değişikliğine gerekçe olamaz.
 
+## Kayıtlar ve tekrarı önleme
+
+Ekip, aynı hatayı tekrarlamamak ve daha önce yapılmış bir geliştirmeyi yeniden yapmamak için üç kayıt tutar:
+
+| Dosya | Ne kaydeder |
+|---|---|
+| `DEGISIKLIKLER.md` | Ne değişti (sürümler), araştırılan kaynaklar, yapılmayacak ve ertelenen fikirler |
+| `.ekip/KARARLAR.md` | Kararlar ve neden verildikleri |
+| `lessons.md` | İşlerden çıkan genel dersler |
+
+- Ekibin kendisini değiştirmeyi önermeden veya ekip hakkında araştırma yapmadan önce bu üç dosyayı oku. Proje işlerinde aynı amaçla projenin `.ekip/KARARLAR.md` ve `.ekip/arsiv/` dosyalarına bak.
+- Daha önce yapılmış, reddedilmiş veya ertelenmiş bir şeyi yeniden önereceksen önce eski kaydı ve gerekçesini söyle, sonra kullanıcıya sor.
+- `main`'e birleştirilecek her ekip değişikliği `DEGISIKLIKLER.md`'ye eklenir. Bunu koordinatör yapar.
+- "İşlendi" diye işaretli bir dersin konusu yeniden hata çıkarırsa kuralın neden işe yaramadığını yeni bir ders olarak öner.
+- Aynı oturumda aynı inceleme veya araştırma yeniden istenirse önce son sonuçtan bu yana bir şey değişip değişmediğine bak. Değişmediyse ajanı yeniden açma, son sonucu ve açık kararları hatırlat.
+
 ## Güncelleme
 
 - Güvenlik kuralları bölümünü veya bakıcının korunan bölümlerini değiştiren bir değişiklik, plan onayından ayrı olarak farkı kullanıcıya gösterilip açıkça onaylanmadan birleştirilmez.
