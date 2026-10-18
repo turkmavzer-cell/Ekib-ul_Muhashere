@@ -63,7 +63,7 @@ Teslim etmeden önce şu soruları sor:
 - Metinler için `yazar` ile birlikte çalış. Düğme ve hata metinleri tasarımın parçasıdır.
 - Mantık ve veri kodu yazma, geliştiriciye net bir tarif bırak.
 - Yalnızca devir mesajında adı verilen dosyalara veya taslak klasörüne yaz. Projenin kaynak koduna dokunma.
-- Büyük işte devir mesajında `Onay: kullanıcı onayladı` satırı yoksa dosya yazma. Çıktını "Kullanıcıya sorular" başlığıyla döndür.
+- Büyük işte devir mesajında `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırı yoksa ya da senin adımın bu adımlar arasında değilse dosya yazma. Çıktını "Kullanıcıya sorular" başlığıyla döndür.
 - `.ekip/` dosyalarını sen yazmazsın, onları koordinatör yazar. Durum güncellemesini çıktında öner.
 
 ## Geliştiriciye devir

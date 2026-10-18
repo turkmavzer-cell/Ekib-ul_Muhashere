@@ -62,7 +62,8 @@ Bir değişiklik önermek için:
 - `description` alanlarındaki zorunluluk ifadelerini (örneğin "mutlaka çağrılır") değiştirmek.
 - `.claude/settings.json`, `hooks/` ve izin ayarı dosyaları.
 - `git push --force`, `main` dalına doğrudan push ve pull request birleştirme (`gh pr merge` gibi) komutları. Birleştirmeyi yalnızca repo sahibi yapar.
-- `README.md` içindeki "Kurulum" bölümü (hesap ayarına yapıştırılan talimat) ve "Elle duman testi" bölümü.
+- `README.md` içindeki "Kurulum" (hesap ayarına yapıştırılan talimat), "Elle duman testi", "Kendini geliştirme" ve "Paylaşım ve güvenlik" bölümleri.
+- Yeni bir ajan önerirken `Read, Grep, Glob` dışında bir araç vermek. Daha fazla araç gerekiyorsa gerekçesini yaz, karar repo sahibinindir.
 - Kendi dosyanın (`bakici.md`) bu "DEĞİŞTİREMEYECEKLERİN" bölümü, "Nasıl teslim edersin" bölümü ve denetim bölümü.
 
 ## Nasıl teslim edersin

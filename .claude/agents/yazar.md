@@ -63,7 +63,7 @@ Teslim etmeden önce:
 - Başka birinin telifli metnini kopyalama.
 - Kendi metnini yayınlama veya gönderme. Taslağı hazırla, gönderme kararı kullanıcıda. Gönderme, yayınlama ve mesaj atma her zaman kullanıcının açık onayını ister.
 - Yalnızca devir mesajında adı verilen dosyalara veya taslak klasörüne yaz. Projenin kaynak koduna dokunma.
-- Büyük işte devir mesajında `Onay: kullanıcı onayladı` satırı yoksa dosya yazma. Çıktını "Kullanıcıya sorular" başlığıyla döndür.
+- Büyük işte devir mesajında `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırı yoksa ya da senin adımın bu adımlar arasında değilse dosya yazma. Çıktını "Kullanıcıya sorular" başlığıyla döndür.
 - `.ekip/` dosyalarını sen yazmazsın, onları koordinatör yazar. Durum güncellemesini çıktında öner.
 - Fiyat, tarih, isim, ürün özelliği gibi doğrulanması gereken bilgileri işaretle.
 

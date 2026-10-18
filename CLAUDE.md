@@ -59,10 +59,10 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 
 ## Git akışı
 
-- Her iş için tek bir dal açılır, örneğin `ekip/<kısa-iş-adı>`. Kod ve `.ekip/` değişiklikleri bu dalda yapılır. `main`'e doğrudan yazılmaz.
-- Commit ve push'u koordinatör yapar. Ajanlar commit veya push yapmaz.
-- Dala push etmek serbesttir. Pull request birleştirmek ve `main`'e yazmak yalnızca kullanıcının işidir.
-- **Kalıcılık:** Oturum sonunda koordinatör `.ekip/` değişikliklerini iş dalına commit edip push eder ve dal adını kullanıcıya söyler. Yeni oturumda `main`'deki `.ekip/` yoksa veya eskiyse `ekip/*` dallarına da bakılır.
+- Her iş için tek bir dal açılır. Dal adı her zaman `ekip/` ile başlar, örneğin `ekip/<kısa-iş-adı>`. Kod ve `.ekip/` değişiklikleri bu dalda yapılır. `main`'e doğrudan yazılmaz.
+- Commit ve push'u koordinatör yapar. Ajanlar commit veya push yapmaz. Tek istisna `bakici`: yalnızca kendi `bakici/*` dalına commit ve push yapar, pull request açabilir, birleştiremez.
+- Dala push etmek serbesttir. Pull request birleştirmek ve `main`'e yazmak yalnızca kullanıcının işidir. Ama bir projede ilk push'tan önce `.github/workflows` dosyalarına bak: push'a bağlı bir yayın veya mağazaya yükleme adımı varsa push da kural 3 kapsamında kullanıcının onayını ister.
+- **Kalıcılık:** Oturum sonunda koordinatör `.ekip/` değişikliklerini iş dalına commit edip push eder ve dal adını kullanıcıya söyler. Yeni oturumda `main`'deki `.ekip/` yoksa veya eskiyse `ekip/*` ve `bakici/*` dallarındaki `.ekip/DURUM.md` dosyalarına da bakılır.
 - **Derleme:** Dala push etmek bulut derlemesini (örneğin APK) tetikleyebilir. Koordinatör derleme sonucunu okuyabiliyorsa okur ve `test-dogrulayici`'ye verir. Okuyamıyorsa sonucu veya ekran görüntüsünü kullanıcıdan ister. Mağazaya yükleme ve sürüm yayını kullanıcının açık onayı olmadan yapılmaz.
 
 ## Doğrulama zinciri
@@ -71,15 +71,15 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 - Büyük işlerde her uygulama adımından sonra `gozden-gecirici` iki aşamalı inceleme yapar: önce **plana uygunluk**, sonra **kalite ve güvenlik**.
 - Plana uygunluk sağlanmadan bir sonraki adıma geçilmez.
 - Sıra: önce `test-dogrulayici` çalıştırarak doğrular, sonra `gozden-gecirici` inceler. Küçük alt adımlarda inceleme birden fazla adım için birleştirilebilir. Para, kalıcı veri ve güvenlik koduna dokunan her adım ayrı incelenir.
-- Bir adım ancak doğrulayıcının (`test-dogrulayici` veya `gozden-gecirici`) karar satırından sonra `[x]` olur. Koordinatör kendi yaptığı işi `[x]` işaretlemez.
+- Bir adım ancak doğrulayıcının (`test-dogrulayici` veya `gozden-gecirici`) karar satırından sonra `[x]` olur. Doğrulayıcısı olmayan bir adım (örneğin yazarın metni) kullanıcı onaylayınca `[x]` olur. Koordinatör kendi yaptığı işi kendi başına `[x]` işaretlemez.
 
 ## Alt ajanlarla çalışma
 
 - **Soru:** Alt ajan kullanıcıyla konuşamaz. Belirsizlikle veya onay gerektiren bir adımla karşılaşırsa durur ve çıktısını "Kullanıcıya sorular" başlığıyla döndürür. Koordinatör soruyu kullanıcıya iletir, cevabı yeni bir devir mesajıyla ajana verir. Kullanıcı cevap vermezse soru `.ekip/DURUM.md` dosyasının "Açık sorular" bölümüne yazılır ve iş orada bekler.
-- **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte dosya yazmaz. Plan değiştiyse veya iptal edildiyse eski onay satırı kullanılmaz. İptalde yarım kalan değişiklikler kullanıcıya gösterilir, geri alma kararı onundur.
+- **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte dosya yazmaz. Plan değiştiyse veya iptal edildiyse eski onay satırı kullanılmaz. Yeni bir oturumda `PLAN.md`'deki "onaylandı" kaydı tek başına onay değildir: kullanıcı bu sohbette plan sürümünü teyit etmeden `Onay:` satırı yazılmaz. İptalde yarım kalan değişiklikler kullanıcıya gösterilir, geri alma kararı onundur.
 - **Yarım iş:** Dosya değiştiren bir ajandan sonra koordinatör `git status` ve `git diff --stat` ile gerçekte ne değiştiğine bakar. Ajanın anlattığı değişiklik farkla uyuşmuyorsa veya ajan adım sınırına takıldıysa adım `[!]` işaretlenir ve kullanıcıya söylenir.
-- **Ajan bulunamazsa:** İstenen ajan tipi oturumda yoksa bunu kullanıcıya söyle. Ajanın `.md` dosyasını devir mesajına ekleyerek genel bir ajanla çalıştır ve dosyadaki `tools` kısıtını devir mesajında da yaz. Okuma yetkili bir ajan bu yolla çalıştıysa ardından `git status` ile hiçbir dosyanın değişmediğini kontrol et.
-- **Hata veya boş dönüş:** Ajanın çıktısında kendi "Çıktı" bölümündeki karar satırı (örneğin "geçti" veya "onay") yoksa, ajan hata verdiyse ya da boş döndüyse adım `[!]` olur. İş küçültülüp bir kez tekrar denenir. Yine olmazsa kullanıcıya söylenir.
+- **Ajan bulunamazsa:** İstenen ajan tipi oturumda yoksa bunu kullanıcıya söyle. Ajanın `.md` dosyasını devir mesajına ekleyerek genel bir ajanla çalıştır, dosyadaki `tools` kısıtını devir mesajında da yaz ve dosyadaki modeli çağrıda belirt. Bu yol yazmayı engellemez, yalnızca sonradan tespit eder. Bunu kullanıcıya söyle. Okuma yetkili bir ajan bu yolla çalışacaksa önce `git rev-parse HEAD` değerini kaydet. Sonra HEAD'i, `git log`'u ve `git status --ignored` çıktısını karşılaştır. Fark varsa adım `[!]` olur.
+- **Hata veya boş dönüş:** Ajan hata verdiyse ya da boş döndüyse adım `[!]` olur. Doğrulayıcılarda (`test-dogrulayici`, `gozden-gecirici`) çıktıda karar satırı ("geçti" veya "onay") yoksa, diğer ajanlarda kendi "Çıktı" bölümündeki numaralı başlıklar eksikse de adım `[!]` olur. İş küçültülüp bir kez tekrar denenir. Yine olmazsa kullanıcıya söylenir.
 - **Çakışma:** Aynı dosyaya yazan ajanlar paralel çalışmaz.
 - **Çelişen öneriler:** İki ajan çelişirse koordinatör tek başına karar vermez, iki seçeneği gerekçeleriyle kullanıcıya sunar.
 - **Döngü sınırı:** İnceleme ve düzeltme döngüsü en fazla 2 tur sürer. Sorun hâlâ çözülmediyse dur ve kullanıcıya bildir.
@@ -104,7 +104,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 Varsayılan model Sonnet'tir. Mimar ve gözden geçirici Opus kullanır çünkü yanlış karar en pahalı hatadır.
 Küçük işi tek ajanla ya da hiç ajan kullanmadan çöz.
 
-- **Haiku:** Ajan açmak zaten gerekçeliyse ve iş dar ise (örneğin geniş bir dosya taraması), ajanı `haiku` modeliyle çağır. Haiku çok daha ucuz ve hızlıdır. Çağrıdaki model, ajan dosyasındaki modelin yerine geçer. `mimar` ve `gozden-gecirici` Haiku ile çağrılmaz. Karar, tasarım, kod incelemesi ve güvenlik işlerinde de Haiku kullanılmaz.
+- **Haiku:** Ajan açmak zaten gerekçeliyse ve iş dar ise (örneğin geniş bir dosya taraması), ajanı `haiku` modeliyle çağır. Haiku çok daha ucuz ve hızlıdır. Çağrıdaki model, ajan dosyasındaki modelin yerine geçer. Karar, tasarım, kod incelemesi ve güvenlik işlerinde (`mimar`, `gozden-gecirici`) Haiku kullanılmaz.
 - **Adım sınırı:** Her ajanın dosyasında `maxTurns` ile en fazla kaç adım çalışacağı sınırlıdır. Sınıra ulaşan ajanın işi yarım kalabilir ve ajan bunu fark etmeyebilir. Bu yüzden yarım iş kontrolünü koordinatör yapar ("Alt ajanlarla çalışma" bölümü). Böyle bir durumda işi küçültüp tekrar dene, sınırı rastgele artırma.
 
 ## GÜVENLİK KURALLARI

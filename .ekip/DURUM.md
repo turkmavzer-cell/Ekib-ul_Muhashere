@@ -15,7 +15,8 @@
 - Plan B, adım B1-B8, iş dalında uygulandı. Koordinatörün kendi kontrolü: 10 ajan geçerli YAML, araç/model/adım sınırları değişmedi, güvenlik bölümü B commit'lerinde değişmedi, plandaki 30 madde dosyalarda var.
 
 ## Yarım kalanlar
-- B9: bağımsız inceleme (gözden geçirici). Ajan açılabilmesi için kullanıcının `ekip:` ile başlayan bir mesajı gerekiyor.
+- B9: bağımsız inceleme. 1. tur "düzeltme gerekli" dedi (4 yüksek, 6 orta bulgu). 1. düzeltme turu yapıldı, 2. inceleme bekleniyor. Döngü sınırı 2 tur.
+- Bakıcının korunan bölümüne dokunan farklar (B8 ve 1. düzeltme turu: README korumaları, yeni ajana araç kısıtı) repo sahibine ayrıca gösterilip onaylanacak.
 - İş dalının pull request ile `main`'e birleştirilmesi (repo sahibi).
 
 ## Sıradaki adım
