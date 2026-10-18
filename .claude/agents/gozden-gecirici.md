@@ -1,6 +1,6 @@
 ---
 name: gozden-gecirici
-description: "Her önemli kod değişikliğinden sonra, birleştirme veya yayından önce kullan. Önce plana uygunluğu, sonra kalite ve güvenliği inceler. Para, veri ve hesap işlemlerinde mutlaka çağrılır."
+description: "Her önemli kod değişikliğinden sonra, birleştirme veya yayından önce kullan. Önce plana uygunluğu, sonra kalite ve güvenliği inceler. Ekip çalışırken para, veri ve hesap işlemlerinde mutlaka çağrılır."
 tools: Read, Grep, Glob, Bash
 model: opus
 maxTurns: 25

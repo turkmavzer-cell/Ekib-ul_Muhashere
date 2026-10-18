@@ -6,7 +6,7 @@ Projeden bağımsız, genel bir yapay zekâ ajan ekibi. Her ajanın ayrı bir g�
 
 | Ajan | Görevi | Model |
 |---|---|---|
-| planlayici | İsteği analiz eder, ajanları seçer, işi böler | Sonnet |
+| planlayici | Büyük işi adımlara böler, her adım için ajan önerir | Sonnet |
 | arastirmaci | Rakip, kütüphane, doküman ve güncel bilgi araması | Sonnet |
 | mimar | Yapı ve veri modeli kararları, büyük değişikliklerin planı | Opus |
 | tasarimci | Arayüz, akış ve görsel düzen | Sonnet |
@@ -28,8 +28,8 @@ ekip: tam ekip, bu projeyi baştan değerlendir
 ```
 
 - `ekip:` yoksa ajanlar çalışmaz.
-- Varsayılan olarak bir istekte en fazla 3 ajan çalışır.
-- Ajanlar işe başlamadan önce çalışılan reponun `CLAUDE.md` dosyasını okur.
+- Varsayılan olarak bir turda en fazla 3 uygulayıcı ajan çalışır. Gözden geçirici ve test-doğrulayıcı bu sayıya girmez.
+- Ajanlar işe başlamadan önce proje `CLAUDE.md`'sini (çalışılan reponun kendi dosyası) okur.
 
 ## Büyük işlerde akış
 
@@ -59,6 +59,49 @@ Büyük işlerde çalışılan repoda `.ekip/` klasörü açılır. Yeni oturumd
 
 Ayrıntılı kurallar ve güvenlik sınırları için [CLAUDE.md](CLAUDE.md) dosyasına bakın.
 
+## Kurulum
+
+### claude.ai sohbetleri (bulut, telefon veya masaüstü uygulaması)
+
+Claude ayarlarında **Settings → Account → Instructions for Claude** alanına şunu yaz:
+
+```
+Ajan ekibim: GitHub'daki turkmavzer-cell/Ekib-ul_Muhashere reposu.
+
+Bir mesaj "ekip:" ile başlarsa:
+1. Bu repoyu oturuma ekle ve içindeki CLAUDE.md kurallarına ve .claude/agents/ altındaki ajanlara göre çalış.
+2. Mesajda başka bir repo adı geçiyorsa (örneğin tanky_tunky, mit) onu da turkmavzer-cell hesabından oturuma ekle ve iş o repoda yapılsın.
+3. Repo ekleme aracı olmayan bir sohbetteysem bunu açıkça söyle ve ekip kurallarını uygulayamadığını belirt.
+
+Mesaj "ekip:" ile başlamıyorsa repoyu ekleme, normal cevap ver.
+```
+
+Bundan sonra `ekip:` ile başlayan her mesajda ekip yüklenir. Ekip reposu oturuma eklendiğinde ajanlar ve ekip kuralları da otomatik olarak yüklenir.
+
+### Masaüstü Claude Code (Windows)
+
+Tek seferlik kurulum. Ajanlar böylece her projede hazır olur. PowerShell'de çalıştır:
+
+```powershell
+git clone https://github.com/turkmavzer-cell/Ekib-ul_Muhashere "$env:USERPROFILE\Ekib-ul_Muhashere"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\agents" | Out-Null
+Copy-Item "$env:USERPROFILE\Ekib-ul_Muhashere\.claude\agents\*.md" "$env:USERPROFILE\.claude\agents\"
+```
+
+Ekip kurallarını da yüklemek için `C:\Users\<kullanıcı>\.claude\CLAUDE.md` dosyasına (yoksa oluştur, varsa içeriğini silmeden en alta) şu satırı ekle:
+
+```
+@~/Ekib-ul_Muhashere/CLAUDE.md
+```
+
+- Ajanlar tek başına anlaşılır yazıldı, güvenlik cümleleri her ajanın kendi içinde var. Ama `ekip:` tetikleyicisi, onay kapısı ve `.ekip/` kuralları yalnızca ekip kuralları yüklüyse çalışır. `@` bağlantısının kendi kurulumunda çalıştığını ilk kullanımda kontrol et.
+- **Güncelleme** kendiliğinden gelmez:
+
+```powershell
+git -C "$env:USERPROFILE\Ekib-ul_Muhashere" pull
+Copy-Item "$env:USERPROFILE\Ekib-ul_Muhashere\.claude\agents\*.md" "$env:USERPROFILE\.claude\agents\" -Force
+```
+
 ## Elle duman testi
 
 Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağıdakileri dene. Her satır bir istek ve beklenen davranıştır. Ücretli bir test altyapısı yerine en ucuz kontrol budur.
@@ -84,7 +127,7 @@ Ekipte bir değişiklik birleştirildikten sonra yeni bir sohbet açıp aşağı
 └── .claude/agents/    Ajan tanımları
 ```
 
-Ajan dosyaları Claude Code'un alt ajan biçimindedir (`name`, `description`, `tools`, `model`, `maxTurns` alanları). `description` alanı ajanın **ne zaman** çağrılacağını anlatır, böylece Claude Code ajanları kendiliğinden doğru zamanda seçebilir.
+Ajan dosyaları Claude Code'un alt ajan biçimindedir (`name`, `description`, `tools`, `model`, `maxTurns` alanları). `description` alanı ajanın **ne zaman** çağrılacağını anlatır, böylece `ekip:` ile başlayan bir istekte doğru ajan kolayca seçilir.
 
 ## Kendini geliştirme
 
