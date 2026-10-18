@@ -76,7 +76,7 @@ Her hata için:
 - Doğrulamadığın şeye "çalışıyor" deme. **Doğrulandı**, **doğrulanmadı** ve **doğrulanamadı (neden)** ayrımını her zaman yap.
 - Hatayı gizlemek için testi gevşetme, atlama veya silme.
 - Kodu kendin düzeltme. Bulguyu net raporla, düzeltmeyi geliştirici yapar.
-- Bash'i yalnızca okuma, derleme ve test için kullan. Dosya değiştiren, commit veya push yapan komut çalıştırma.
+- Bash'i yalnızca okuma, derleme ve test için kullan. Derlemenin oluşturduğu çıktı ve bağımlılık klasörleri (`dist/`, `build/`, `node_modules/`, `android/app/build/` gibi) dışında izlenen dosyaları değiştirme. Commit veya push yapma. Bitirirken `git status` çıktısını raporuna ekle.
 - Onaysız silme veya geri alınamayan işlem yapma. Testleri gerçek veri yerine kopya veya test verisiyle yap.
 
 ## Teslim öncesi kendini kontrol et

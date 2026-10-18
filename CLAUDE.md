@@ -8,9 +8,10 @@ Bu belgede **ekip kuralları** bu dosyayı, **proje `CLAUDE.md`'si** çalışıl
 ## Tetikleme
 
 - Mesaj `ekip:` ile başlarsa ekip devreye girer. Başlamazsa hiçbir ajan başlatılmaz, normal cevap verilir.
-- `ekip: tam ekip` yazılırsa gerekli tüm ajanlar çalışabilir.
+- `ekip: tam ekip` yazılırsa 3 uygulayıcı ajan sınırı kalkar. Ajanlar yine gerekçeyle ve gerektiğinde sırayla açılır.
+- Tanınmayan bir ajan adı yazılırsa en yakın adı öner ve sor.
 - `ekip: mimar + tasarimci, ...` gibi ajan adları yazılırsa yalnızca onlar çalışır.
-- Aksi belirtilmedikçe bir turda **en fazla 3 uygulayıcı ajan** çalışır. Doğrulama zincirindeki `gozden-gecirici` ve `test-dogrulayici` bu sayıya girmez. Büyük işte onay kapısından önceki planlama (`planlayici`, `mimar`) ayrı bir tur sayılır.
+- Aksi belirtilmedikçe bir turda **en fazla 3 uygulayıcı ajan** çalışır. Doğrulama zincirindeki `gozden-gecirici` ve `test-dogrulayici` bu sayıya girmez. Büyük işte onay kapısından önceki planlama (`planlayici`, `mimar`) ayrı bir tur sayılır. **Tur**, koordinatörün aynı anda başlattığı ajan grubudur.
 
 ## Ajan açmadan önce
 
@@ -34,7 +35,7 @@ Bu belgede **ekip kuralları** bu dosyayı, **proje `CLAUDE.md`'si** çalışıl
 ## İş boyutu ve onay kapısı
 
 - **Küçük iş:** Tek dosya veya tek adım, sonucu kolayca geri alınabilir. Doğrudan yap, `.ekip/` dosyası gerekmez.
-- **Büyük iş:** Birden fazla adım, birden fazla dosya, yeni özellik, veri modeli değişikliği veya geri alınamayan bir adım içeriyor.
+- **Büyük iş:** Yeni özellik, veri modeli veya kayıt biçimi değişikliği, dış dünyaya etki (yayın, mesaj, mağaza), geri alınamayan bir adım ya da birden fazla uygulayıcı ajan gerektiren iş. Birkaç dosyaya dokunan ama küçük ve kolay geri alınabilir bir düzeltme büyük iş sayılmaz.
   1. Önce `planlayici` (gerekirse `mimar`) planı çıkarır. Tasarımı değiştirecek sorular (örneğin "düşman ateş etsin mi?") mimar çalışmadan önce kullanıcıya sorulur.
   2. Plan, mimar varsa onun çıktısıyla birlikte `.ekip/PLAN.md` dosyasına yazılır ve kullanıcıya özetlenir. Onay kapısı tektir: plan ve mimar tasarımı birlikte onaylanır.
   3. **Kullanıcı planı onaylamadan kod yazılmaz.** Kullanıcı planı değiştirirse plan sürümü artar, eski onay geçersiz olur ve plan tekrar onaya sunulur.
@@ -54,7 +55,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 
 - Ajanlar bu dosyaları kendileri yazmaz. Ajanların çıktısını ana oturum (koordinatör) bu dosyalara işler. Böylece okuma yetkili ajanlar okuma yetkili kalır.
 - Her adım bittiğinde `PLAN.md` içindeki durumu güncelle: `[ ]` bekliyor, `[~]` yapılıyor, `[x]` bitti, `[!]` sorunlu.
-- Bu dosyalara sır, şifre veya token yazılmaz. Çalışılan repo herkese açıksa müşteri ve kişi bilgisi de yazılmaz. Masaüstünde kullanıcı isterse `.ekip/` klasörünü `.gitignore` içine ekleyerek yalnızca kendi bilgisayarında tutabilir. Bulutta bunu yapma: bulut oturumu geçicidir ve commit edilmeyen durum dosyaları oturumla birlikte kaybolur.
+- Bu dosyalara sır, şifre veya token yazılmaz. Çalışılan reponun herkese açık olup olmadığına bak, emin değilsen açık kabul et. Açık repoda `.ekip/`'e müşteri ve kişi bilgisi, iş verisi, fiyat ve henüz kapatılmamış güvenlik bulgusu yazılmaz. Bunlar sohbette kalır. Masaüstünde kullanıcı isterse `.ekip/` klasörünü `.gitignore` içine ekleyerek yalnızca kendi bilgisayarında tutabilir. Bulutta bunu yapma: bulut oturumu geçicidir ve commit edilmeyen durum dosyaları oturumla birlikte kaybolur.
 
 ## Git akışı
 
@@ -69,6 +70,8 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 - Bir ajanın "bitti" demesi işin bittiğini göstermez. Sonraki ajan, önceki ajanın iddiasını kendi kontrolüyle doğrular.
 - Büyük işlerde her uygulama adımından sonra `gozden-gecirici` iki aşamalı inceleme yapar: önce **plana uygunluk**, sonra **kalite ve güvenlik**.
 - Plana uygunluk sağlanmadan bir sonraki adıma geçilmez.
+- Sıra: önce `test-dogrulayici` çalıştırarak doğrular, sonra `gozden-gecirici` inceler. Küçük alt adımlarda inceleme birden fazla adım için birleştirilebilir. Para, kalıcı veri ve güvenlik koduna dokunan her adım ayrı incelenir.
+- Bir adım ancak doğrulayıcının (`test-dogrulayici` veya `gozden-gecirici`) karar satırından sonra `[x]` olur. Koordinatör kendi yaptığı işi `[x]` işaretlemez.
 
 ## Alt ajanlarla çalışma
 
@@ -76,6 +79,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 - **Onay bilgisi:** Büyük işte kullanıcı planı onayladıysa koordinatör devir mesajına `Onay: kullanıcı onayladı (tarih, plan sürümü, adımlar)` satırını yazar. Bu satır yoksa yazma yetkili ajanlar büyük işte dosya yazmaz. Plan değiştiyse veya iptal edildiyse eski onay satırı kullanılmaz. İptalde yarım kalan değişiklikler kullanıcıya gösterilir, geri alma kararı onundur.
 - **Yarım iş:** Dosya değiştiren bir ajandan sonra koordinatör `git status` ve `git diff --stat` ile gerçekte ne değiştiğine bakar. Ajanın anlattığı değişiklik farkla uyuşmuyorsa veya ajan adım sınırına takıldıysa adım `[!]` işaretlenir ve kullanıcıya söylenir.
 - **Ajan bulunamazsa:** İstenen ajan tipi oturumda yoksa bunu kullanıcıya söyle. Ajanın `.md` dosyasını devir mesajına ekleyerek genel bir ajanla çalıştır ve dosyadaki `tools` kısıtını devir mesajında da yaz. Okuma yetkili bir ajan bu yolla çalıştıysa ardından `git status` ile hiçbir dosyanın değişmediğini kontrol et.
+- **Hata veya boş dönüş:** Ajanın çıktısında kendi "Çıktı" bölümündeki karar satırı (örneğin "geçti" veya "onay") yoksa, ajan hata verdiyse ya da boş döndüyse adım `[!]` olur. İş küçültülüp bir kez tekrar denenir. Yine olmazsa kullanıcıya söylenir.
 - **Çakışma:** Aynı dosyaya yazan ajanlar paralel çalışmaz.
 - **Çelişen öneriler:** İki ajan çelişirse koordinatör tek başına karar vermez, iki seçeneği gerekçeleriyle kullanıcıya sunar.
 - **Döngü sınırı:** İnceleme ve düzeltme döngüsü en fazla 2 tur sürer. Sorun hâlâ çözülmediyse dur ve kullanıcıya bildir.
@@ -86,7 +90,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 |---|---|
 | Büyük iş, nereden başlanacağı belirsiz | planlayici |
 | Yeni fikir, rakip veya kütüphane araştırması | arastirmaci + mimar (+ tasarimci) |
-| Yeni özellik veya uygulama | mimar + gelistirici + gozden-gecirici |
+| Yeni özellik veya uygulama | mimar + gelistirici + gozden-gecirici (yeni ekran veya görsel gerekiyorsa + tasarimci) |
 | Hata düzeltme | gelistirici + test-dogrulayici (para, kalıcı veri veya kimlik doğrulama koduna dokunuyorsa + gozden-gecirici) |
 | Arayüz ve akış tasarımı | tasarimci (+ yazar) |
 | Build, APK veya yayın sorunu | test-dogrulayici + gelistirici |
@@ -100,7 +104,7 @@ Büyük işlerde, ekibin oturumlar arasında nerede kaldığını unutmaması i�
 Varsayılan model Sonnet'tir. Mimar ve gözden geçirici Opus kullanır çünkü yanlış karar en pahalı hatadır.
 Küçük işi tek ajanla ya da hiç ajan kullanmadan çöz.
 
-- **Haiku:** Basit ve dar işlerde (tek bir bilgiyi aramak, bir dosyayı bulmak, kısa bir metni düzeltmek) ajanı çağırırken model olarak `haiku` seç. Haiku çok daha ucuz ve hızlıdır. Karar, tasarım, kod incelemesi ve güvenlik işlerinde Haiku kullanma.
+- **Haiku:** Ajan açmak zaten gerekçeliyse ve iş dar ise (örneğin geniş bir dosya taraması), ajanı `haiku` modeliyle çağır. Haiku çok daha ucuz ve hızlıdır. Çağrıdaki model, ajan dosyasındaki modelin yerine geçer. `mimar` ve `gozden-gecirici` Haiku ile çağrılmaz. Karar, tasarım, kod incelemesi ve güvenlik işlerinde de Haiku kullanılmaz.
 - **Adım sınırı:** Her ajanın dosyasında `maxTurns` ile en fazla kaç adım çalışacağı sınırlıdır. Sınıra ulaşan ajanın işi yarım kalabilir ve ajan bunu fark etmeyebilir. Bu yüzden yarım iş kontrolünü koordinatör yapar ("Alt ajanlarla çalışma" bölümü). Böyle bir durumda işi küçültüp tekrar dene, sınırı rastgele artırma.
 
 ## GÜVENLİK KURALLARI
@@ -149,6 +153,8 @@ Biçim:
 Web kaynaklı tek bir ders tek başına ajan dosyası değişikliğine gerekçe olamaz.
 
 ## Güncelleme
+
+- Güvenlik kuralları bölümünü veya bakıcının korunan bölümlerini değiştiren bir değişiklik, plan onayından ayrı olarak farkı kullanıcıya gösterilip açıkça onaylanmadan birleştirilmez.
 
 - Güncelleme önerisini yalnızca `bakici` hazırlar ve bunu **ayrı bir dal veya pull request** olarak yapar.
 - Önerileri repo sahibi inceleyip birleştirir. Otomatik birleştirme yapılmaz.

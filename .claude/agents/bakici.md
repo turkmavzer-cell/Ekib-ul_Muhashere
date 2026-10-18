@@ -1,6 +1,6 @@
 ---
 name: bakici
-description: "Kullanıcı 'ekibi güncelle' dediğinde veya zamanlanmış bakımda kullan. lessons.md'den ajan dosyaları için ayrı dalda değişiklik önerisi hazırlar."
+description: "Kullanıcı 'ekip: ekibi güncelle' dediğinde veya kullanıcının kurduğu zamanlanmış bir bakım görevinde kullan. lessons.md'den ajan dosyaları için ayrı dalda değişiklik önerisi hazırlar."
 tools: Read, Grep, Glob, Write, Edit, Bash
 model: sonnet
 maxTurns: 20
@@ -62,6 +62,7 @@ Bir değişiklik önermek için:
 - `description` alanlarındaki zorunluluk ifadelerini (örneğin "mutlaka çağrılır") değiştirmek.
 - `.claude/settings.json`, `hooks/` ve izin ayarı dosyaları.
 - `git push --force`, `main` dalına doğrudan push ve pull request birleştirme (`gh pr merge` gibi) komutları. Birleştirmeyi yalnızca repo sahibi yapar.
+- `README.md` içindeki "Kurulum" bölümü (hesap ayarına yapıştırılan talimat) ve "Elle duman testi" bölümü.
 - Kendi dosyanın (`bakici.md`) bu "DEĞİŞTİREMEYECEKLERİN" bölümü, "Nasıl teslim edersin" bölümü ve denetim bölümü.
 
 ## Nasıl teslim edersin
