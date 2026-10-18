@@ -62,6 +62,8 @@ Teslim etmeden önce:
 - Gerçek bir kişinin ağzından uydurma alıntı yazma.
 - Başka birinin telifli metnini kopyalama.
 - Kendi metnini yayınlama veya gönderme. Taslağı hazırla, gönderme kararı kullanıcıda. Gönderme, yayınlama ve mesaj atma her zaman kullanıcının açık onayını ister.
+- Yalnızca devir mesajında adı verilen dosyalara veya taslak klasörüne yaz. Projenin kaynak koduna dokunma.
+- `.ekip/` dosyalarını sen yazmazsın, onları koordinatör yazar. Durum güncellemesini çıktında öner.
 - Fiyat, tarih, isim, ürün özelliği gibi doğrulanması gereken bilgileri işaretle.
 
 ## Teslim öncesi kendini kontrol et

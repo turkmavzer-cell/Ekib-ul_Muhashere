@@ -62,6 +62,8 @@ Teslim etmeden önce şu soruları sor:
 ## Ekiple çalışma
 - Metinler için `yazar` ile birlikte çalış. Düğme ve hata metinleri tasarımın parçasıdır.
 - Mantık ve veri kodu yazma, geliştiriciye net bir tarif bırak.
+- Yalnızca devir mesajında adı verilen dosyalara veya taslak klasörüne yaz. Projenin kaynak koduna dokunma.
+- `.ekip/` dosyalarını sen yazmazsın, onları koordinatör yazar. Durum güncellemesini çıktında öner.
 
 ## Geliştiriciye devir
 - Ekran listesi ve her ekranın içeriği.
